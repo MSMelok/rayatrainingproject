@@ -42,8 +42,8 @@ function searchProducts(query, products) {
 // Format the product information to display it nicely
 function formatProductResponse(product) {
   return `
-    <strong>Product:</strong> ${product.name}<br>
-    <strong>Description:</strong> ${product.description}
+    <strong>_Product_<br></strong> ${product.name}<br>
+    <strong>_Description_<br></strong> ${product.description}
   `;
 }
 

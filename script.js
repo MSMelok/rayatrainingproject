@@ -41,20 +41,24 @@ function searchProducts(query, products) {
 
 // Format the product information to display it nicely
 function formatProductResponse(product) {
+  // Replace \n with <br> for proper line breaks
+  const formattedDescription = product.description.replace(/\n/g, '<br>');
   return `
-    <strong>_Product_<br></strong> ${product.name}<br>
-    <strong>_Description_<br></strong> ${product.description}
+    <strong>Product:<br></strong> ${product.name}<br>
+    <strong>Description:<br></strong> ${formattedDescription}
   `;
 }
 
 // Bot's predefined knowledge base
 const knowledgeBase = [
-    { question: "السلام عليكم", answer: "وعليكم السلام! كيف يمكنني مساعدتك؟" },
-    { question: "اسمك ايه؟", answer: "انا يسيدي اسمي باز بوت." },
-    { question: "مواليد كام؟", answer: "لا انا مش مواليد سنة معينة, علشان المطور بتاعي اشتغل عليا شوية سنة 2021 و اشتغل عليا شوية كمان سنة 2024." },
-    { question: "انت منين؟", answer: "انا!...... تصدق انا معرفش 😅, بس اعتبرني من مواليد الغردقة." },
-    { question: "عندك كام سنة؟", answer: "4 سنين تقريباً... و اهي ماشية و كل من عليها فاااان يا عم 😂." },
-    { question: "مين صنعك؟", answer: "دا واحد ابن حلال كدا اسمه محمد صلاح, تقدر تشوف صفحته علي Facebook اسم الصفحة Muhammad Meluk, و ابقي سلملي عليه بالله عليك." }
+    { question: "السلام عليكم", answer: "وعليكم السلام! اساعدك ازاي؟" },
+    { question: "salam", answer: "Salam, How are you doing?" },
+    { question: "اسمك ايه", answer: "انا يسيدي اسمي باز بوت." },
+    { question: "what is your name", answer: "My Name is BazBot, Nice to meet you." },
+    { question: "مواليد كام", answer: "لا انا مش مواليد سنة معينة, علشان المطور بتاعي اشتغل عليا شوية سنة 2021 و اشتغل عليا شوية كمان سنة 2024." },
+    { question: "انت منين", answer: "انا!...... تصدق انا معرفش 😅, بس اعتبرني من مواليد الغردقة." },
+    { question: "عندك كام سنة", answer: "4 سنين تقريباً... و اهي ماشية و كل من عليها فاااان يا عم 😂." },
+    { question: "مين صنعك", answer: "دا واحد ابن حلال كدا اسمه محمد صلاح, تقدر تشوف صفحته علي Facebook اسم الصفحة Muhammad Meluk, و ابقي سلملي عليه بالله عليك." }
 ];
 
 // Function to get bot response for general questions

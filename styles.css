@@ -99,7 +99,7 @@ body {
 .bot-message {
     align-self: flex-start;
     background-color: #eceff1;
-    direction: rtl;
+    direction: ltr;
     color: #333;
 }
 

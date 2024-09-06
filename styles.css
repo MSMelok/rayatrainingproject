@@ -90,10 +90,14 @@ body {
 
 .user-message {
     align-self: flex-end;
-    background-color: #eceff1;
+    background-color: #fff;
     color: #333;
     text-align: right;
     margin: 5px 0px 5px 0px;
+    box-shadow: 5px 0px #005c97;
+    border-bottom: 1px solid #0000004f;
+    border-top: 1px solid #0000004f;
+    border-left: 1px solid #0000004f;
 }
 
 .bot-message {

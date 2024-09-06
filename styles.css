@@ -32,18 +32,17 @@ body {
     background-color: #0084b4;
 }
 
-/* Chatbot Container (Floating at bottom-right) */
 .chatbot-container {
-    width: 95vw; /* Adjust width to 95% of the viewport */
-    max-width: 95vw; /* Make sure max-width also respects 95vw */
+    width: 95vw; 
+    max-width: 95vw; 
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     position: fixed;
-    bottom: 90px;
-    right: 2.5vw; /* Adjust right spacing to keep it centered */
-    display: none; /* Initially hidden */
+    bottom: 85px;
+    right: 2.5vw; 
+    display: none; 
     flex-direction: column;
     justify-content: space-between;
     z-index: 999;
@@ -53,7 +52,7 @@ body {
     background-color: #005c97;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .chatbot-header h2 {
@@ -66,13 +65,12 @@ body {
     font-size: 14px;
 }
 
-/* Chatbot Body */
 .chatbot-body {
-    height: 400px;
+    height: 60vh;
     padding: 15px;
     overflow-y: auto;
     background-color: #eaeff2;
-    scroll-behavior: smooth; /* Smooth scrolling */
+    scroll-behavior: smooth; 
 }
 
 #chat-output {

@@ -334,13 +334,10 @@ const replies = [
     ] //38
 ];
 
-function getReply(prompt, lang) {
-    const prompts = knowledgeBase[lang] || [];
-    const repliesLang = replies[lang] || [];
-    
+function getReply(prompt) {
     for (let i = 0; i < prompts.length; i++) {
-        if (prompts[i].some(p => prompt.includes(p.toLowerCase()))) {
-            return repliesLang[i] || "I'm sorry, I don't have a response for that.";
+        if (prompts[i].includes(prompt.toLowerCase())) {
+            return replies[i];
         }
     }
     return "I'm sorry, I don't have a response for that.";
@@ -348,9 +345,8 @@ function getReply(prompt, lang) {
 
 // Function to get bot response
 function getBotResponse(userInput) {
-    const userLang = userInput.match(/[\u0600-\u06FF]/) ? 'ar' : 'en'; // Simple check for Arabic characters
     userInput = userInput.trim().toLowerCase();
-    return getReply(userInput, userLang);
+    return getReply(userInput);
 }
 
 // Ensure the chat sticks to the last message
@@ -370,20 +366,30 @@ function displayMessage(message, sender) {
 
 // Event listener for sending message
 document.getElementById('send-btn').addEventListener('click', () => {
-    const userInput = document.getElementById('user-input').value;
-    if (userInput.trim() === "") return;
+    const userInput = document.getElementById('user-input').value.trim();
+    if (userInput === "") return;
 
     displayMessage(userInput, 'user');
+    document.getElementById('user-input').value = '';
 
-    const botResponse = getBotResponse(userInput);
     setTimeout(() => {
+        const botResponse = getBotResponse(userInput);
         displayMessage(botResponse, 'bot');
-    }, 500); // simulate delay
+    }, 500);
 });
 
-// Handle Enter key press
+// Send message on Enter key press
 document.getElementById('user-input').addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         document.getElementById('send-btn').click();
     }
+});
+
+// Toggle chatbot visibility
+const chatbotToggleBtn = document.getElementById('chatbot-toggle');
+const chatbotContainer = document.getElementById('chatbot');
+
+chatbotToggleBtn.addEventListener('click', () => {
+    const isVisible = chatbotContainer.style.display === 'block';
+    chatbotContainer.style.display = isVisible ? 'none' : 'block';
 });

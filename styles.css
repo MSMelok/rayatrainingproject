@@ -44,7 +44,6 @@ body {
     padding: 10px;
     border-radius: 5px;
     margin: 0;
-    direction: rtl; /* Add RTL support for Arabic text */
 }
 
 .chat-input {

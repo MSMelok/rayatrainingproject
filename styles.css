@@ -1,76 +1,23 @@
-/* Global Styles */
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #f4f7f9;
-    font-family: 'Cairo', sans-serif;
-    height: 100vh;
-    position: relative;
+    font-family: Tahoma, Arial, sans-serif;
+    background-color: #f0f0f0;
 }
 
-/* Floating Chat Button */
-.chatbot-toggle-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #005c97;
-    color: white;
-    font-size: 24px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s;
-}
-
-.chatbot-toggle-btn:hover {
-    background-color: #0084b4;
-}
-
-.chatbot-container {
-    width: 95vw; 
-    max-width: 95vw; 
+.chat-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 50px auto;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
     overflow: hidden;
-    position: fixed;
-    bottom: 85px;
-    right: 2.5vw; 
-    display: none; 
-    flex-direction: column;
-    justify-content: space-between;
-    z-index: 999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.chatbot-header {
-    background-color: #005c97;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-}
-
-.chatbot-header h2 {
-    margin: 0;
-    font-family: 'Cairo', sans-serif;
-}
-
-.chatbot-header p {
-    margin: 5px 0 0;
-    font-size: 14px;
-}
-
-.chatbot-body {
-    height: 60vh;
-    padding: 15px;
+#chat-window {
+    height: 500px;
     overflow-y: auto;
-    background-color: #eaeff2;
-    scroll-behavior: smooth; 
+    padding: 20px;
+    background-color: #fafafa;
 }
 
 #chat-output {
@@ -79,66 +26,48 @@ body {
 }
 
 .message {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 10px;
+    margin-bottom: 15px;
     max-width: 80%;
-    word-wrap: break-word;
-  }
-  
-  .user-message {
-    background-color: #f1f1f1;
-    align-self: flex-end;
-    text-align: right;
-    direction: rtl; /* Right-to-left for user messages */
-  }
-  
-  .bot-message {
-    background-color: #d1f0d1;
-    align-self: flex-start;
-    text-align: left;
-    direction: ltr; /* Left-to-right for bot messages */
-  }
-  
-  .timestamp {
-    font-size: 0.8em;
-    color: gray;
-    text-align: right;
-  }  
+}
 
-/* Chatbot Footer */
-.chatbot-footer {
-    display: flex;
+.user-message {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: #ececec;
+}
+
+.message p {
     padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+    direction: rtl; /* Add RTL support for Arabic text */
+}
+
+.chat-input {
+    display: flex;
     border-top: 1px solid #ddd;
-    background-color: #fff;
 }
 
 #user-input {
     flex: 1;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 15px;
+    border: none;
+    font-size: 16px;
 }
 
 #send-btn {
-    background-color: #005c97;
-    color: white;
-    padding: 10px 15px;
+    padding: 15px;
     border: none;
-    margin-left: 10px;
-    border-radius: 5px;
+    background-color: #5cb85c;
+    color: #fff;
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 #send-btn:hover {
-    background-color: #0084b4;
-}
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    background-color: #4cae4c;
 }

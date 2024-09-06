@@ -43,9 +43,7 @@ function searchProducts(query, products) {
 function formatProductResponse(product) {
   return `
     <strong>Product:</strong> ${product.name}<br>
-    <strong>Description:</strong> ${product.description}<br>
-    <strong>Price:</strong> $${product.price}<br>
-    <strong>Stock:</strong> ${product.stock}
+    <strong>Description:</strong> ${product.description}
   `;
 }
 

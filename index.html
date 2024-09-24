@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="ar">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BazBot - مساعدك الشخصي</title>
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles.css">
-        <!-- Include Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BazBot - مساعدك الشخصي</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Include Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- Floating Button for Opening Chatbot -->
-    <button id="chatbot-toggle" class="chatbot-toggle-btn">
-        💬
-    </button>
+    <button id="chatbot-toggle" class="chatbot-toggle-btn">💬</button>
 
     <!-- Chatbot Container (Initially Hidden) -->
     <div class="chatbot-container" id="chatbot">
-        <div class="chatbot-header">
-            <h2>BazBot</h2>
-        </div>
-        <div class="chatbot-body" id="chat-window">
-            <div id="chat-output"></div>
-        </div>
-        <div class="chatbot-footer">
-            <input type="text" id="user-input" placeholder="اسأل BazBot..." autocomplete="off">
-            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
-        </div>
+      <div class="chatbot-header">
+        <h2>BazBot</h2>
+      </div>
+      <div class="chatbot-body" id="chat-window">
+        <div id="chat-output"></div>
+      </div>
+      <div class="chatbot-footer">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="اسأل BazBot..."
+          autocomplete="off"
+        />
+        <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
     </div>
 
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>

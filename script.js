@@ -1,29 +1,32 @@
 // Fetch product data
-fetch('products.json')
-  .then(response => response.json())
-  .then(data => {
+fetch("products.json")
+  .then((response) => response.json())
+  .then((data) => {
     initializeBot(data); // Pass product data to initialize the bot
   })
-  .catch(error => console.error('Error loading products.json:', error));
+  .catch((error) => console.error("Error loading products.json:", error));
 
 // Initialize the bot
 function initializeBot(products) {
-  document.getElementById('send-btn').addEventListener('click', () => {
-    const userInput = document.getElementById('user-input').value.trim().toLowerCase();
+  document.getElementById("send-btn").addEventListener("click", () => {
+    const userInput = document
+      .getElementById("user-input")
+      .value.trim()
+      .toLowerCase();
     if (userInput === "") return;
 
     // Display user message
-    displayMessage(userInput, 'user');
-    document.getElementById('user-input').value = '';
+    displayMessage(userInput, "user");
+    document.getElementById("user-input").value = "";
 
     // Check for product-related queries first
     const productResponse = searchProducts(userInput, products);
-    if (productResponse !== 'Product not found') {
-      displayMessage(productResponse, 'bot');
+    if (productResponse !== "Product not found") {
+      displayMessage(productResponse, "bot");
     } else {
       // Fallback to knowledgeBase if no product is found
       const botResponse = getBotResponse(userInput);
-      displayMessage(botResponse, 'bot');
+      displayMessage(botResponse, "bot");
     }
   });
 }
@@ -31,18 +34,21 @@ function initializeBot(products) {
 // Search products
 function searchProducts(query, products) {
   query = query.toLowerCase(); // Make search case-insensitive
-  const foundProduct = products.find(product => 
-    product.name.toLowerCase().includes(query) || 
-    product.description.toLowerCase().includes(query)
+  const foundProduct = products.find(
+    (product) =>
+      product.name.toLowerCase().includes(query) ||
+      product.description.toLowerCase().includes(query)
   );
-  
-  return foundProduct ? formatProductResponse(foundProduct) : 'Product not found';
+
+  return foundProduct
+    ? formatProductResponse(foundProduct)
+    : "Product not found";
 }
 
 // Format the product information to display it nicely
 function formatProductResponse(product) {
   // Replace \n with <br> for proper line breaks
-  const formattedDescription = product.description.replace(/\n/g, '<br>');
+  const formattedDescription = product.description.replace(/\n/g, "<br>");
   return `
     <strong>Product:<br></strong> ${product.name}<br>
     <strong>Description:<br></strong> ${formattedDescription}
@@ -51,14 +57,31 @@ function formatProductResponse(product) {
 
 // Bot's predefined knowledge base
 const knowledgeBase = [
-    { question: "السلام عليكم", answer: "وعليكم السلام! اساعدك ازاي؟" },
-    { question: "salam", answer: "Salam, How are you doing?" },
-    { question: "اسمك ايه", answer: "انا يسيدي اسمي باز بوت." },
-    { question: "what is your name", answer: "My Name is BazBot, Nice to meet you." },
-    { question: "مواليد كام", answer: "لا انا مش مواليد سنة معينة, علشان المطور بتاعي اشتغل عليا شوية سنة 2021 و اشتغل عليا شوية كمان سنة 2024." },
-    { question: "انت منين", answer: "انا!...... تصدق انا معرفش 😅, بس اعتبرني من مواليد الغردقة." },
-    { question: "عندك كام سنة", answer: "4 سنين تقريباً... و اهي ماشية و كل من عليها فاااان يا عم 😂." },
-    { question: "مين صنعك", answer: "دا واحد ابن حلال كدا اسمه محمد صلاح, تقدر تشوف صفحته علي Facebook اسم الصفحة Muhammad Meluk, و ابقي سلملي عليه بالله عليك." }
+  { question: "السلام عليكم", answer: "وعليكم السلام! اساعدك ازاي؟" },
+  { question: "salam", answer: "Salam, How are you doing?" },
+  { question: "اسمك ايه", answer: "انا يسيدي اسمي باز بوت." },
+  {
+    question: "what is your name",
+    answer: "My Name is BazBot, Nice to meet you.",
+  },
+  {
+    question: "مواليد كام",
+    answer:
+      "لا انا مش مواليد سنة معينة, علشان المطور بتاعي اشتغل عليا شوية سنة 2021 و اشتغل عليا شوية كمان سنة 2024.",
+  },
+  {
+    question: "انت منين",
+    answer: "انا!...... تصدق انا معرفش 😅, بس اعتبرني من مواليد الغردقة.",
+  },
+  {
+    question: "عندك كام سنة",
+    answer: "4 سنين تقريباً... و اهي ماشية و كل من عليها فاااان يا عم 😂.",
+  },
+  {
+    question: "مين صنعك",
+    answer:
+      "دا واحد ابن حلال كدا اسمه محمد صلاح, تقدر تشوف صفحته علي Facebook اسم الصفحة Muhammad Meluk, و ابقي سلملي عليه بالله عليك.",
+  },
 ];
 
 // Function to get bot response for general questions
@@ -74,18 +97,21 @@ function getBotResponse(userInput) {
 
 // Ensure the chat sticks to the last message and sets LTR for bot messages
 function displayMessage(message, sender) {
-  const chatOutput = document.getElementById('chat-output');
-  const messageElement = document.createElement('div');
-  
+  const chatOutput = document.getElementById("chat-output");
+  const messageElement = document.createElement("div");
+
   // Assign classes based on the sender
-  messageElement.classList.add('message', `${sender}-message`);
-  
+  messageElement.classList.add("message", `${sender}-message`);
+
   // Check if the message is from the bot to apply LTR
-  if (sender === 'bot') {
-    messageElement.style.direction = 'ltr'; // Apply LTR direction to bot messages
+  if (sender === "bot") {
+    messageElement.style.direction = "ltr"; // Apply LTR direction to bot messages
   }
-  
-  const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  const time = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   messageElement.innerHTML = `<p>${message}</p><span class="timestamp">${time}</span>`;
   chatOutput.appendChild(messageElement);
@@ -95,17 +121,17 @@ function displayMessage(message, sender) {
 }
 
 // Send message on Enter key press
-document.getElementById('user-input').addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    document.getElementById('send-btn').click();
+document.getElementById("user-input").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    document.getElementById("send-btn").click();
   }
 });
 
 // Toggle chatbot visibility
-const chatbotToggleBtn = document.getElementById('chatbot-toggle');
-const chatbotContainer = document.getElementById('chatbot');
+const chatbotToggleBtn = document.getElementById("chatbot-toggle");
+const chatbotContainer = document.getElementById("chatbot");
 
-chatbotToggleBtn.addEventListener('click', () => {
-  const isVisible = chatbotContainer.style.display === 'block';
-  chatbotContainer.style.display = isVisible ? 'none' : 'block';
+chatbotToggleBtn.addEventListener("click", () => {
+  const isVisible = chatbotContainer.style.display === "block";
+  chatbotContainer.style.display = isVisible ? "none" : "block";
 });
